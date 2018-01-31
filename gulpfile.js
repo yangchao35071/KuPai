@@ -33,14 +33,11 @@ gulp.task('sassfile',function(){
         .pipe(gulp.dest('E:\\phpStudy\\WWW\\KuPai\\css'));
 })
 //php
-gulp.task('php-study',function(){
-    gulp.src('php/**/*')
-        .pipe(gulp.dest('E:\\phpStudy\\WWW\\KuPai\\php'));
-})
-//压缩css文件
-gulp.task('minify-css',function(){
-    gulp.src()
-})
+// gulp.task('php-study',function(){
+//     gulp.src('php/**/*')
+//         .pipe(gulp.dest('E:\\phpStudy\\WWW\\KuPai\\php'));
+// })
+
 
 
 
@@ -52,5 +49,5 @@ gulp.task('watchall',function(){
     gulp.watch('img/**/*', ['copy-image']);
     gulp.watch('js/**/*', ['copy-js']);
     gulp.watch('sass/*.scss', ['sassfile']);
-    gulp.watch('php/*.php', ['php-study']);
+    // gulp.watch('php/*.php', ['php-study']);
 })

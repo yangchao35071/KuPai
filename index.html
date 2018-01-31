@@ -5,8 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>coolpad官方网站</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    
+    <div class="all">
+        <!-- ------------------------头部--------------------------- -->
+        <div class="head">
+            <div class="header">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png">
+                </a>
+                <ul>
+                    <li><a href="javascript:;">产品</a></li>
+                    <li><a href="javascript:;">关于公司</a></li>
+                    <li><a href="javascript:;">支持</a></li>
+                    <li><a href="javascript:;"><img src="img/earth.png"></a></li>
+                    <li><input type="text" value="搜索"></li>
+                </ul>
+            </div>
+        </div>
+        <!-- ---------------轮播图--------------- -->
+        <div class="slideshow">
+
+        </div>
+    </div>
 </body>
 </html>
+<script src="js/JQuery.js"></script>
+<script>
+    $(function(){
+
+    })
+
+    let Slideshow = function(obj){
+        this.boxDom = obj.boxDom;
+        this.width  = obj.width;
+        this.height = obj.height;
+        
+        this.imgs   = obj.imgs;
+        
+        
+    }
+    Slideshow.prototype.initUI = function(){
+        let $ulDom = $('<ul></ul>');
+        $ulDom.css({
+            'width':this.width,
+            'height':this.height,
+            'overflow':'hidden'
+        });
+        for(let i=0;i<this.imgs.length;i++){
+            let $liDom = $('<li></li>');
+            $liDom.css({
+                'width':this.width,
+                'height':this.height,
+                'float':'left'
+            })
+            $ulDom.append($liDom);
+        }
+
+
+    }
+</script>

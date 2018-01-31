@@ -1,0 +1,96 @@
+@charset "utf-8";
+@import 'base';
+@mixin Disper{
+    display: inline-block;
+}
+$fontColor:#fff;
+$bgColor:#f7f9f8;
+$green:#008842;
+html,body{
+    width:100%;
+    height:100%;
+    background:#f7f8f8;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration:none;
+    color:$fontColor;
+    // @include Disper;
+}
+i,s{
+    display:inline-block;
+    vertical-align: middle;
+}
+img{
+    vertical-align:bottom;
+    border:none;
+}
+input{
+    outline: none;
+}
+
+// -----------------------整体----------------------
+.all{
+    width:100%;
+    height:100%;
+    // ------------------------头部----------------------
+    .head{
+        width:100%;
+        height:44px;
+        background:#000;
+        .header{
+            width:1200px;
+            height:44px;
+            margin:0 auto;
+            // background:red;
+            position:relative;
+            .logo{
+                display:inline-block;
+                position: absolute;
+                left:120px;
+                top:12px;
+                img{
+                    width:108px;
+                    height:22px;
+                }
+            }
+            ul{
+                overflow: hidden;
+                float:right;
+                li{
+                    float:left;
+                    margin-right:85px;
+                    a{
+                        line-height:44px;
+                        font-size:14px;
+                        img{
+                            vertical-align:middle;
+                        }
+                    }
+                    input{
+                        width:200px;
+                        height:30px;
+                        border:0;
+                        text-indent:10px;
+                        background:url(../img/search.png) no-repeat 180px center;
+                        margin-top:7px;
+                        border-bottom:1px solid #fff;
+                        color:#fff;
+                        font-size:14px;
+                    }
+                    &:last-child{
+                        margin:0;
+                    }
+                }
+            }
+        }
+    }
+    // -----------------轮播图----------------
+    .slideshow{
+        width:100%;
+        height:820px;
+        background:green;
+    }
+}
