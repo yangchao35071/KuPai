@@ -10,9 +10,11 @@ html,body{
     width:100%;
     height:100%;
     background:#f7f8f8;
+    overflow-x:hidden; 
 }
-ul{
+ul,li{
     list-style: none;
+    display:inline-block;
 }
 a{
     text-decoration:none;
@@ -22,6 +24,7 @@ a{
 i,s{
     display:inline-block;
     vertical-align: middle;
+    
 }
 img{
     vertical-align:bottom;
@@ -33,23 +36,24 @@ input{
 
 // -----------------------整体----------------------
 .all{
-    width:100%;
+    max-width:1920px;
     height:100%;
+    margin:0 auto;
     // ------------------------头部----------------------
     .head{
         width:100%;
         height:44px;
         background:#000;
+        position:relative;
         .header{
             width:1200px;
-            height:44px;
+            height:100%;
             margin:0 auto;
             // background:red;
-            position:relative;
             .logo{
                 display:inline-block;
                 position: absolute;
-                left:120px;
+                left:150px;
                 top:12px;
                 img{
                     width:108px;
@@ -85,12 +89,103 @@ input{
                     }
                 }
             }
+            i{
+                display:none;
+                background:url(../img/search.png) no-repeat center;
+                width:17px;
+                height:19px;
+                position: absolute;
+                right:10px;
+                top:12px;
+                background-size:cover;
+            }
+            b{
+                display:none;
+                background:url(../img/seek.png) no-repeat center;
+                width:17px;
+                height:19px;
+                position: absolute;
+                left:10px;
+                top:12px;
+                background-size:cover;
+            }
         }
     }
     // -----------------轮播图----------------
-    .slideshow{
+    #slideshow{
         width:100%;
-        height:820px;
+        height:610px;
         background:green;
+        // ul{
+        //     width:100%;
+        //     height:610px;
+        //     overflow: hidden;
+        //     li{
+        //         width:100%;
+        //         height:610px;
+        //         a{
+        //             display:block;
+        //             width:100%;
+        //             height:100%;
+        //             background:url(../img/banner_M7.jpg) no-repeat center;
+        //             background-size:cover;
+                    
+        //         }
+        //     }
+        // }
+    }
+}
+
+@media screen and (max-width:1920px){
+    .all .head .header .logo{
+        left:280px;
+    }
+    // --------------轮播图---------------
+    .all #slideshow{
+        width: 100%;
+        height: 820px;
+    }
+}
+@media screen and (max-width:1440px){
+    // ----------------------头部--------------------
+    .all .head .header .logo{
+        left:150px;
+    }
+    // --------------轮播图---------------
+    .all #slideshow{
+        width: 100%;
+        height: 610px;
+    }
+}
+@media screen and (max-width: 767px){
+    .all .head {
+        height:50px;
+    }
+    .all .head .header .logo {
+        left: 50%;
+        margin-left: -41.5px;
+        top: 50%;
+        margin-top: -8.5px;
+    }
+    .all .head .header .logo img{
+        width:84px;
+        height:17px;
+    }
+    body .all .head .header ul {
+        display: none;
+    }
+    .all .head .header b{
+        top:15px;
+        display: block;
+    }
+    .all .head .header i{
+        top:15px;
+        display: block;
+    }
+
+    // --------------轮播图---------------
+    .all #slideshow{
+        width: 100%;
+        height: 520px;
     }
 }

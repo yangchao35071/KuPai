@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>coolpad官方网站</title>
     <link rel="stylesheet" href="css/index.css">
+
 </head>
 <body>
     <div class="all">
@@ -22,11 +23,19 @@
                     <li><a href="javascript:;"><img src="img/earth.png"></a></li>
                     <li><input type="text" value="搜索"></li>
                 </ul>
+                <i></i>
+                <b></b>
             </div>
         </div>
         <!-- ---------------轮播图--------------- -->
-        <div class="slideshow">
-
+        <div id="slideshow">
+            <!-- <ul>
+                <li><a href="javascript:;"></a></li>
+                <li><a href="javascript:;"></a></li>
+                <li><a href="javascript:;"></a></li>
+                <li><a href="javascript:;"></a></li>
+                <li><a href="javascript:;"></a></li>
+            </ul> -->
         </div>
     </div>
 </body>
@@ -34,35 +43,114 @@
 <script src="js/JQuery.js"></script>
 <script>
     $(function(){
+       
 
+        new Slideshow({
+            'boxDom':$('#slideshow'),
+            
+            'imgs':['banner_M7.jpg','banner_C6_P.jpg','s1R7d6Kh85S9.jpg','7WetOMDL8czC.jpg','67Bkh4kVlJYg.jpg'],
+
+            'btnW':'50px',
+            'btnH':'8px'
+        })
+
+              
     })
 
     let Slideshow = function(obj){
         this.boxDom = obj.boxDom;
-        this.width  = obj.width;
-        this.height = obj.height;
-        
+
         this.imgs   = obj.imgs;
+
+        this.timer  = null;
         
-        
+        this.btnW   = obj.btnW;
+
+        this.btnH   = obj.btnH;
+
+
+        this.initUI();
     }
     Slideshow.prototype.initUI = function(){
+        let index = 0;
         let $ulDom = $('<ul></ul>');
         $ulDom.css({
-            'width':this.width,
-            'height':this.height,
-            'overflow':'hidden'
+            'width':'100%',
+            'height':'100%',
+            'overflow':'hidden',
+            'position':'relative'
         });
+        $ulDom.mouseover(()=>{
+            clearInterval(this.timer);
+            console.log(1)
+        })
+        $ulDom.mouseleave(()=>{
+            
+        })
         for(let i=0;i<this.imgs.length;i++){
             let $liDom = $('<li></li>');
             $liDom.css({
-                'width':this.width,
-                'height':this.height,
-                'float':'left'
-            })
+                'width': '100%',
+                'height': '100%',
+                'position':'absolute',
+                'left':'0',
+                'top':'0'
+            });
+            let $aDom = $('<a></a>');
+            $aDom.attr({'href':'javascript:;'});
+            $aDom.css({'width':'100%','height': '100%','background':'url(img/'+ this.imgs[i] +') no-repeat center','display':'block','background-size':'cover'})
+            $liDom.append($aDom);
             $ulDom.append($liDom);
         }
+        this.boxDom.append($ulDom);
+
+        
+        $ulDom.find('li').not($ulDom.find('li').eq(0)).css({
+            'display':'none'
+        });
 
 
+
+        let $ulBtn  = $('<ul></ul>');
+        $ulBtn.css({'position':'absolute','bottom':'20px','overflow':'hidden','left':'50%','z-index':'5','margin':'auto','transform': 'translate(-50%)'})
+        for(let i=0;i<this.imgs.length;i++){
+            let $liBtn  = $('<li></li>');
+            $liBtn.css({'width':this.btnW,'height':this.btnH,'background':'yellow','opacity':'0.7','float':'left','margin':'0 10px','position':'relative'});
+            $liBtn.click(function(){
+                index = $(this).index() - 1;
+            })
+            let $aBtn = $('<a></a>');
+            $aBtn.attr({'href':'javascript:;'})
+            $aBtn.css({'display':'block','width':'100%','height':'100%'});
+            $liBtn.append($aBtn);
+            $ulBtn.append($liBtn);
+        }
+        this.boxDom.append($ulBtn);
+
+        let $timeT = $('<div></div>');
+        $timeT.css({'width':'0px','height':'8px','background':'red','position':'absolute','left':'0','top':'0'})
+        $ulBtn.find('li').eq(0).append($timeT);
+        $timeT.animate({'width':'51px'},3000);
+        $timeT.animate({ 'width': '0' },0);
+
+        
+        this.timer = setInterval(()=>{
+            index++;
+            if (index >= this.imgs.length) {
+                index = 0;
+            }
+
+            $ulDom.find('li').eq(index).fadeTo(2000, 1).css({ 'z-index': '1' });
+            $ulDom.find('li').not($ulDom.find('li').eq(index)).fadeTo(2000, 0).css({ 'z-index': '0' });
+
+
+            $ulBtn.find('li').eq(index).append($timeT);
+            $timeT.animate({ 'width': '51px' }, 3000);
+            $timeT.animate({ 'width': '0' },0);
+            
+
+        },3010);
     }
+
+    
 </script>
