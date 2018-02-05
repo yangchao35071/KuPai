@@ -247,20 +247,24 @@ input{
                 box-sizing: border-box;
                 padding-right: 15px;
                 padding-left: 30px;
+                overflow:hidden;
                 dl{
                     float:left;
                     width:25%;
-                    height:80px;
                     dt{
                         margin-bottom:15px;
-                        height:20px;
                         b{
                             font-size:16px;
+                        }
+                        span{
+                            float:right;
+                            font-size:24px;
+                            margin-right:10px;
+                            display:none;
                         }
                     }
                     dd{
                         margin-bottom:10px;
-                        height:20px;
                         a{
                             color:#999;
                             &:hover{
@@ -282,6 +286,14 @@ input{
                     position:relative;
                     float:left;
                     margin-right:50px;
+                    dt{
+                        #wx_green{
+                            display:none;
+                        }
+                        #wb_red{
+                            display:none;
+                        }
+                    }
                     dd{
                         display:none;
                         position:absolute;
@@ -399,6 +411,7 @@ input{
     // --------新闻---------
     .all .new .new_con{
         width:100%;
+        clear:both;
         .tit{
             display:block;
         }
@@ -409,10 +422,86 @@ input{
             .text{
                 display:none;
             }
+            img{
+                width:100%;
+            }
         }
     }
     // -----------底部------------
-    .all .footer .footer_con .footer_left dl{
-        width:100%;
+    body .all .footer {
+        overflow: hidden;
+        margin-top:20px;
+        .footer_con{
+            width:100%;
+            padding:0 10px;
+            margin-top:20px;
+            box-sizing:border-box;
+            overflow: hidden;
+            .footer_left {
+                width:100%;
+                padding:0;
+                border:0;
+                dl{
+                    width:100%;
+                    overflow: hidden;
+                    border-bottom:1px solid #ccc;
+                    margin:0;
+                    dt{
+                        width:100%;
+                        line-height:50px;
+                        margin:0;
+                        span{
+                            display:block;
+                        }
+                    }
+                    dd{
+                        width:100%;
+                        margin-top:10px;
+                        display:none;
+                    }
+                }
+            }
+            .footer_right{
+                width:100%;
+                padding:0;
+                p{
+                    line-height:50px;
+                }
+                dl{
+                    width:50%;
+                    margin:0;
+                    text-align: center;
+                    height:200px;
+                    dt{
+                        #wx_gray{
+                            display:none;
+                        }
+                        #wb_gray{
+                            display:none;
+                        }
+                        #wx_green{
+                            display:inline-block;
+                            width:30px;
+                            height:30px;
+                        }
+                        #wb_red{
+                            width:30px;
+                            height:30px;
+                            display:inline-block;
+                        }
+                    }
+                    dd{
+                        display:block;
+                        left:50%;
+                        top:60px;
+                        transform:translateX(-50%);
+                        img{
+                            width:80px;
+                            height:80px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
