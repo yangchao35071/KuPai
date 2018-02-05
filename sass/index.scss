@@ -250,14 +250,17 @@ input{
                 dl{
                     float:left;
                     width:25%;
+                    height:80px;
                     dt{
                         margin-bottom:15px;
+                        height:20px;
                         b{
                             font-size:16px;
                         }
                     }
                     dd{
                         margin-bottom:10px;
+                        height:20px;
                         a{
                             color:#999;
                             &:hover{
@@ -409,5 +412,7 @@ input{
         }
     }
     // -----------底部------------
-    // .all .footer .footer_con .footer_left dl dt
+    .all .footer .footer_con .footer_left dl{
+        width:100%;
+    }
 }
